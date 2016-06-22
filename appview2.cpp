@@ -87,16 +87,10 @@ void Form::paintEvent(QPaintEvent *event)
     if(zoomed_)
     {
     	static bool x = true;
-    	int dx = image.width()/4;
-    	int dy = image.height()/4;
-    	source.adjust(dx,dy,dx,dy);
-    	QImage ii = image.copy(source).scaled(target.width(),target.height(),Qt::KeepAspectRatio);
-    	if(x)
-    	{
-    		ii.save("x.png");
-    		x=  false;
-    	}
-	    painter.drawImage(0,0,ii);	
+    	int dx = image.width()/8;
+    	int dy = image.height()/8;
+    	source.adjust(dx,dy,-dx,-dy);
+	    painter.drawImage(target,image,source);
     }
     else
     {

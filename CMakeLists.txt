@@ -16,9 +16,5 @@ QT5_WRAP_UI(UIS_HDRS app2view.ui)
 set(QTDEPS 	Qt5::Core 	Qt5::Gui 	Qt5::Widgets)
 set(CMAKE_AUTOMOC ON)
 
-
-add_executable(MyProject app1.cpp)
-target_link_libraries(MyProject ${QTDEPS} p::gstreamer)
-
 add_executable(MyProject2 app2.cpp appview2.cpp)
 target_link_libraries(MyProject2 ${QTDEPS} p::gstreamer)
